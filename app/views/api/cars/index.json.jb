@@ -1,0 +1,4 @@
+@cars.map do |car|
+  render partial: "partial.json.jb", locals: {
+    car: car }
+end

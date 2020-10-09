@@ -1,0 +1,11 @@
+{
+  id: car.id,
+  make: car.make,
+  model: car.model,
+  color: car.color,
+  year: car.year,
+  description: car.description,
+  miles: car.miles,
+  user_id: car.user_id,
+  categories: car.categories,
+}
