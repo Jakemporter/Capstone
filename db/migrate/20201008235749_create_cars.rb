@@ -6,7 +6,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.string :color
       t.string :year
       t.text :description
-      t.string :miles
+      t.integer :miles
       t.integer :user_id
 
       t.timestamps
