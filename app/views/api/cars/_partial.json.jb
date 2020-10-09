@@ -8,4 +8,5 @@
   miles: car.miles,
   user_id: car.user_id,
   categories: car.categories,
+  images: car.images,
 }
