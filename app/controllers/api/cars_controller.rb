@@ -46,4 +46,14 @@ class Api::CarsController < ApplicationController
     end
   end
 
+  def destroy
+    car = Car.find_by(id: params[:id])
+    if car
+      car.destroy
+      car.save
+      render json: {message: "Car successfully destroyed"}
+    else
+      render json: {message: "Car not found"}
+    end
+  end
 end
