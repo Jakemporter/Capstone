@@ -33,16 +33,22 @@ class Api::CarsController < ApplicationController
 
   def update
     @car = Car.find_by(id: params[:id])
-    @car.make = params[:make] || @car.make
-    @car.model = params[:model] || @car.model
-    @car.color = params[:color] || @car.color
-    @car.year = params[:year] || @car.year
-    @car.description = params[:description] || @car.description
-    @car.miles = params[:miles] || @car.miles
-    if @car.save
-      render "show.json.jb"
+    if @car
+      @car.make = params[:make] || @car.make
+      @car.model = params[:model] || @car.model
+      @car.color = params[:color] || @car.color
+      @car.year = params[:year] || @car.year
+      @car.description = params[:description] || @car.description
+      @car.miles = params[:miles] || @car.miles
     else
-      render json: {errors: @car.errors.full_messages} , status: 422
+      render json: {error: "Car not found" }
+    end
+    if @car
+      if @car.save
+        render "show.json.jb"
+      else
+        render json: {errors: @car.errors.full_messages} , status: 422
+      end
     end
   end
 
