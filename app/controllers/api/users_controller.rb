@@ -1,5 +1,5 @@
 class Api::UsersController < ApplicationController
-  def createc 
+  def create
     user = User.new(
       first_name: params[:first_name],
       last_name: params[:last_name],
