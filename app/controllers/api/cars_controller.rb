@@ -6,6 +6,13 @@ class Api::CarsController < ApplicationController
       category = Category.find_by(name: params[:category])
       @cars = category.cars
     end
+    if params[:sort] == "bid" && params[:sort_order] == "asc"
+      @cars = @cars.order(current_bid: :asc)
+    elsif params[:sort] == "bid" && params[:sort_order] == "desc"
+      @cars = @cars.order(current_bid: :desc)
+    else
+      @cars = @cars.order("id")
+    end
     render "index.json.jb"
   end
 

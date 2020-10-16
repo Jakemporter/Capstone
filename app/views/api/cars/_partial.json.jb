@@ -6,6 +6,7 @@
   year: car.year,
   description: car.description,
   miles: car.miles,
+  current_bid: car.current_bid,
   user_id: car.user_id,
   categories: car.categories,
   images: car.images,
