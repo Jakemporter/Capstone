@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :api do
     #Users
     post "/users" => "users#create"
+    get "/users" => "users#index"
 
     #Login
     post "/sessions" => "sessions#create"
@@ -14,7 +15,7 @@ Rails.application.routes.draw do
     post "/cars" => "cars#create"
     patch "cars/:id" => "cars#update"
     delete "cars/:id" => "cars#destroy"
-    
+
     #Bids
     post "/bids/:id" => "bids#show"
     
