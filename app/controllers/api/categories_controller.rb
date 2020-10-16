@@ -1,4 +1,4 @@
-class Api::CategoryController < ApplicationController
+class Api::CategoriesController < ApplicationController
   before_action :authenticate_admin
   def create
     category = Category.new(
@@ -14,3 +14,4 @@ class Api::CategoryController < ApplicationController
     render json: {message: "category created"}
   end
 end
+
