@@ -13,8 +13,10 @@ class Api::BidsController < ApplicationController
         bid.save
         current_car.current_bid = bid.bid
         current_car.save
+        render json: {current_bid: current_car.current_bid , current_car: current_car}
+      else
+        render json: {error: "bid lower than current bid"}
       end
-      render json: {current_bid: current_car.current_bid , current_car: current_car}
     else
       render json: {error: "Car not found"}
     end
