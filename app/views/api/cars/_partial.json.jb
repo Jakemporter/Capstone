@@ -13,6 +13,12 @@
     bid: bid.bid
     }
   end,
+  comments: car.comments.map do |comment|
+    {
+      user: comment.user.username,
+      comment: comment.comment
+    }
+  end,
   current_bid: car.current_bid,
   user_id: car.user_id,
   categories: car.categories,

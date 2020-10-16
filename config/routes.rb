@@ -22,5 +22,8 @@ Rails.application.routes.draw do
     
     #Category
     post "/categories" => "categories#create"
+
+    #comments
+    post "/comments" => "comments#create"
   end
 end
