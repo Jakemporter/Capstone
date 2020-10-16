@@ -18,7 +18,11 @@ class Api::CarsController < ApplicationController
 
   def show
     @car = Car.find_by(id: params[:id])
-    render "show.json.jb"
+    if @car
+      render "show.json.jb"
+    else
+      render json: {error: "Car not found"}
+    end
   end
   
   def create

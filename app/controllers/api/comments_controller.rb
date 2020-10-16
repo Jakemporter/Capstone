@@ -3,14 +3,18 @@ class Api::CommentsController < ApplicationController
 
   def create
     current_car = Car.find_by(id: params[:car_id])
-    comment = Comment.new(
-      user_id: current_user.id,
-      car_id: current_car.id,
-      comment: params[:comment],
-    )
-    if comment.save
-      render json: {car: current_car, comment: comment}
-    end 
+    if current_car
+      comment = Comment.new(
+        user_id: current_user.id,
+        car_id: current_car.id,
+        comment: params[:comment],
+      )
+      if comment.save
+        render json: {car: current_car, comment: comment}
+      end 
+    else
+      render json: {error: "Car not found"}
+    end
   end
   def destroy
     comments = Comment.where(user_id: current_user.id)
