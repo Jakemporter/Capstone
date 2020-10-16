@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
     #comments
     post "/comments" => "comments#create"
+    delete "/comments" => "comments#destroy"
   end
 end
