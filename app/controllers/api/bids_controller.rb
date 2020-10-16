@@ -9,13 +9,15 @@ class Api::BidsController < ApplicationController
       bid: params[:bid], 
     )
     if bid.bid > current_car.current_bid
+      bid.save
       current_car.current_bid = bid.bid
       current_car.save
     end
-    render json: {currentBid: current_car}
-  end
-  
+    render json: {current_bid: current_car.current_bid , current_car: current_car}
+  end 
+
   def show
-    
+    bid = Bid.find_by(id: params[:id])
+    render json: {bid: bid, car: bid.car}
   end
 end
