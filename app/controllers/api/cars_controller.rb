@@ -2,6 +2,10 @@ class Api::CarsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
   def index
     @cars = Car.all
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @cars = category.cars
+    end
     render "index.json.jb"
   end
 
