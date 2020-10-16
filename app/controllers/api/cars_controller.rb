@@ -39,7 +39,9 @@ class Api::CarsController < ApplicationController
     if @car.save
       CategoryCar.create!(category_id: params[:category_id],
       car_id: @car.id)
-      Image.create!(car_id: @car.id, url: params[:image_url])
+      response = Cloudinary::Uploader.upload(params[:image_url])
+      cloudinary_url = response["cloudinary://834338626673976:ymxVSOlN9G4yk74L78Xzti2MqhA@dnqh0ggie"]
+      Image.create!(car_id: @car.id, url: cloudinary_url)
     else
       render json: {errors: @car.errors.full_messages}, status: 422
     end
