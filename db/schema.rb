@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_10_09_000352) do
     t.text "description"
     t.integer "miles"
     t.integer "user_id"
+    t.integer "current_bid", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

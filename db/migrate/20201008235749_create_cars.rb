@@ -8,7 +8,7 @@ class CreateCars < ActiveRecord::Migration[6.0]
       t.text :description
       t.integer :miles
       t.integer :user_id
-
+      t.integer :current_bid, default: 0
       t.timestamps
     end
   end

@@ -17,7 +17,8 @@ Rails.application.routes.draw do
     delete "cars/:id" => "cars#destroy"
 
     #Bids
-    post "/bids/:id" => "bids#show"
+    get "/bids/:id" => "bids#show"
+    post "/bids" => "bids#create"
     
     #Category
     post "/categories" => "categories#create"
