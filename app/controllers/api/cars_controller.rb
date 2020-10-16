@@ -64,7 +64,8 @@ class Api::CarsController < ApplicationController
   end
 
   def destroy
-    car = Car.find_by(id: params[:id])
+    cars = Car.where(user_id: current_user.id)
+    car = cars.find_by(id: params[:id])
     if car
       car.destroy
       car.save
