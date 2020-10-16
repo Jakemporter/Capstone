@@ -1,2 +1,26 @@
-render partial: "partial.json.jb", locals: {car: 
-  @car}
+
+{
+  id: @car.id,
+  make: @car.make,
+  model: @car.model,
+  color: @car.color,
+  year: @car.year,
+  miles: @car.miles,
+  current_bid: @car.current_bid,
+  images: @car.images,
+  user_id: @car.user_id,
+  categories: @car.categories,
+  bids: @car.bids.map do |bid|
+    {
+    id: bid.id,
+    user_id: bid.user_id,
+    bid: bid.bid
+    }
+  end,
+  comments: @car.comments.map do |comment|
+    {
+      user: comment.user.username,
+      comment: comment.comment
+    }
+  end,
+}
