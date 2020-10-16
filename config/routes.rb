@@ -19,5 +19,7 @@ Rails.application.routes.draw do
     #Bids
     post "/bids/:id" => "bids#show"
     
+    #Category
+    post "/categories" => "category#create"
   end
 end
