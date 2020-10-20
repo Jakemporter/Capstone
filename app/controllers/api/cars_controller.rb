@@ -39,9 +39,7 @@ class Api::CarsController < ApplicationController
     if @car.save
       CategoryCar.create!(category_id: params[:category_id],
       car_id: @car.id)
-      response = Cloudinary::Uploader.upload(params[:image_url])
-      cloudinary_url = response["cloudinary://834338626673976:ymxVSOlN9G4yk74L78Xzti2MqhA@dnqh0ggie"]
-      Image.create!(car_id: @car.id, url: cloudinary_url)
+      Image.create!(car_id: @car.id, url: params[:image_url])
     else
       render json: {errors: @car.errors.full_messages}, status: 422
     end
@@ -73,6 +71,11 @@ class Api::CarsController < ApplicationController
     cars = Car.where(user_id: current_user.id)
     car = cars.find_by(id: params[:id])
     if car
+      images = Image.where(car_id: car.id)
+      images.map do |image|
+        image.destroy
+        image.save
+      end
       car.destroy
       car.save
       render json: {message: "Car successfully destroyed"}
