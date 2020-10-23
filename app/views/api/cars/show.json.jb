@@ -7,6 +7,7 @@
   year: @car.year,
   miles: @car.miles,
   current_bid: @car.current_bid,
+  description: @car.description,
   images: @car.images,
   user_id: @car.user_id,
   categories: @car.categories,
