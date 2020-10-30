@@ -7,4 +7,5 @@
   miles: car.miles,
   current_bid: car.current_bid,
   images: car.images,
+  description: car.description,
 }
