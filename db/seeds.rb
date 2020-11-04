@@ -7,7 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(first_name: "Jake", last_name: "Porter", username: "jake123", email: "Jake@example.com", password: "password", admin: true)
-User.create!(first_name: "Lexie", last_name: "Campbell", username: "Lex0612", email: "Lex@example.com", password: "password")
+
+User.create!(first_name: "Lexie", last_name: "Porter", username: "Lex0612", email: "Lex@example.com", password: "password")
 
 
 Car.create!(make: "Porsche", model: "911 Turbo S", color: "Grey", year: "2017", description: "Engine: 3.8L DOHC 24-valve flat-6/540 hp @ 6,400 rpm, 523 lb-ft @ 2,250-4,000 rpm; 580 hp @ 6,750 rpm, 553 lb-ft @ 2,250-4,000 rpm Transmission: 7-speed dual-clutch automatic", miles: 12000, user_id: 1 )
@@ -29,6 +30,8 @@ Image.create!(car_id: 2, url: "https://cnet2.cbsistatic.com/img/5rTrRwO42gvBPUuh
 
 Category.create!(name: "Luxury")
 Category.create!(name: "Sport")
+Category.create!(name: "SUV")
+Category.create!(name: "Sedan")
 
 CategoryCar.create!(category_id: 1, car_id: 1)
 CategoryCar.create!(category_id: 2, car_id: 1)
