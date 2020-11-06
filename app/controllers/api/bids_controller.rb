@@ -19,7 +19,7 @@ class Api::BidsController < ApplicationController
           user_id: current_user.id,
         }
       else
-        render json: {errors: ["bid lower than current bid"]}, status: 422
+        render json: {errors: ["bid must be higher than #{current_car.current_bid}"]}, status: 422
       end
     else
       render json: {error: "Car not found"}
