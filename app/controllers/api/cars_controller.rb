@@ -61,15 +61,6 @@ class Api::CarsController < ApplicationController
     else
       render json: {error: "Car not found" }
     end
-    if params[:new_url]
-      new_image = Image.new(
-        car_id: @car.id,
-        url: params[:new_url]
-      )
-      if new_image
-        new_image.save
-      end
-    end
     if @car
       if @car.save
         render "show.json.jb"

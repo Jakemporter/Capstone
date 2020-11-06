@@ -26,5 +26,8 @@ Rails.application.routes.draw do
     #comments
     post "/comments" => "comments#create"
     delete "/comments" => "comments#destroy"
+
+    #Images
+    post "/images" => "images#create"
   end
 end
