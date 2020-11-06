@@ -55,6 +55,9 @@ class Api::CarsController < ApplicationController
       @car.year = params[:year] || @car.year
       @car.description = params[:description] || @car.description
       @car.miles = params[:miles] || @car.miles
+      image = Image.find_by(url: @car.images[0]["url"])
+      image["url"] = params[:url] || @car.images[0]["url"]
+      image.save
     else
       render json: {error: "Car not found" }
     end
