@@ -1,5 +1,10 @@
 class Api::ImagesController < ApplicationController
   before_action :authenticate_user
+  def index
+    @images = Image.all
+    render "index.json.jb"
+  end
+
   def create
     current_car = Car.find_by(id: params[:car_id])
     if current_car
