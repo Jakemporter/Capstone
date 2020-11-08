@@ -47,7 +47,8 @@ class Api::CarsController < ApplicationController
   end
 
   def update
-    @car = Car.find_by(id: params[:id])
+    cars = Car.where(user_id: current_user.id) 
+    @car = cars.find_by(id: params[:id])
     if @car
       @car.make = params[:make] || @car.make
       @car.model = params[:model] || @car.model
