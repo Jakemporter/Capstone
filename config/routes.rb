@@ -25,7 +25,7 @@ Rails.application.routes.draw do
 
     #comments
     post "/comments" => "comments#create"
-    delete "/comments" => "comments#destroy"
+    delete "/comments/:id" => "comments#destroy"
 
     #Images
     get "/images" => "images#index"
