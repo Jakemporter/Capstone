@@ -33,5 +33,8 @@ Rails.application.routes.draw do
     post "/images" => "images#create"
     patch "/images/:id" => "images#update"
     delete "/images/:id" => "images#destroy"
+
+    #category cars
+    post "category_cars" => "category_cars#create"
   end
 end
