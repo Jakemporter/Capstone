@@ -15,7 +15,8 @@
     {
     id: bid.id,
     user_id: bid.user_id,
-    bid: bid.bid
+    bid: bid.bid,
+    user: bid.user.username
     }
   end,
   comments: @car.comments.map do |comment|
