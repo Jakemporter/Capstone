@@ -11,6 +11,7 @@
   images: @car.images,
   user_id: @car.user_id,
   categories: @car.categories,
+  username: @car.user.username,
   bids: @car.bids.map do |bid|
     {
     id: bid.id,
