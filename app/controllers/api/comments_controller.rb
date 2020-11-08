@@ -10,7 +10,10 @@ class Api::CommentsController < ApplicationController
         comment: params[:comment],
       )
       if comment.save
-        render json: {car: current_car, comment: comment}
+        render json: {
+          user: comment.user.username,
+          comment: comment.comment
+        }
       end 
     else
       render json: {error: "Car not found"}
