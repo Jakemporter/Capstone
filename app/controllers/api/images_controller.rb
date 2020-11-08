@@ -4,6 +4,15 @@ class Api::ImagesController < ApplicationController
     @images = Image.all
     render "index.json.jb"
   end
+  
+  def show
+    @image = Image.find_by(id: params[:id])
+    if @image
+      render "show.json.jb" 
+    else
+      render json: {errors: ["image not found"]}
+    end
+  end
 
   def create
     current_car = Car.find_by(id: params[:car_id])
