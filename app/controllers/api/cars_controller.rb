@@ -1,7 +1,7 @@
 class Api::CarsController < ApplicationController
   before_action :authenticate_user, except: [:index, :show]
   def index
-    @cars = Car.all
+    @cars = Car.where(expired: :false)
     if params[:category]
       category = Category.find_by(name: params[:category])
       @cars = category.cars
@@ -37,6 +37,9 @@ class Api::CarsController < ApplicationController
     )
 
     if @car.save
+      @time = Time.now
+      
+
       CategoryCar.create!(category_id: params[:category_id],
       car_id: @car.id)
       Image.create!(car_id: @car.id, url: params[:image_url])
