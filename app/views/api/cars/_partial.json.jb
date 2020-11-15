@@ -10,5 +10,5 @@
   images: car.images,
   description: car.description,
   categories: car.categories,
-  expired: car.expired,
+  expired: car.expired?,
 }
