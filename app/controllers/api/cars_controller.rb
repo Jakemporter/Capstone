@@ -21,7 +21,7 @@ class Api::CarsController < ApplicationController
     if @car
       render "show.json.jb"
     else
-      render json: {error: "Car not found"}
+      render json: {error: "Car not found"}, status: 422
     end
   end
   
