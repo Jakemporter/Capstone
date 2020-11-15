@@ -72,7 +72,7 @@ class Api::CarsController < ApplicationController
       image["url"] = params[:url] || @car.images[0]["url"]
       image.save
     else
-      render json: {error: "Car not found" }
+      render json: {error: "Car not found" }, status: 422
     end
     if @car
       if @car.save
