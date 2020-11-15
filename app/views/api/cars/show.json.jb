@@ -3,6 +3,7 @@
   id: @car.id,
   make: @car.make,
   model: @car.model,
+  VIN: @car.VIN,
   color: @car.color,
   year: @car.year,
   miles: @car.miles,

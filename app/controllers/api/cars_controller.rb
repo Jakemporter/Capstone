@@ -34,6 +34,7 @@ class Api::CarsController < ApplicationController
       year: params[:year],
       description: params[:description],
       miles: params[:miles],
+      VIN: params[:vin],
     )
 
     if @car.save
@@ -59,6 +60,7 @@ class Api::CarsController < ApplicationController
       @car.year = params[:year] || @car.year
       @car.description = params[:description] || @car.description
       @car.miles = params[:miles] || @car.miles
+      @car.VIN = params[:vin] || @car.VIN
       image = Image.find_by(url: @car.images[0]["url"])
       image["url"] = params[:url] || @car.images[0]["url"]
       image.save
