@@ -19,6 +19,13 @@ class Api::CarsController < ApplicationController
   def show
     @car = Car.find_by(id: params[:id])
     if @car
+      if @car.VIN
+        response = HTTP
+          .headers(:accept => "application/json")
+          .timeout(30)
+          .get("https://api.carsxe.com/specs?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
+        @data = response.parse
+      end
       render "show.json.jb"
     else
       render json: {error: "Car not found"}, status: 422
