@@ -54,6 +54,11 @@ class Api::CarsController < ApplicationController
     else
       render json: {errors: @car.errors.full_messages}, status: 422
     end
+    response = HTTP
+          .headers(:accept => "application/json")
+          .timeout(30)
+          .get("https://api.carsxe.com/specs?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
+    @data = response.parse
     render "show.json.jb"
   end
 
