@@ -1,5 +1,11 @@
 class Api::BidsController < ApplicationController
   before_action :authenticate_user, except: [:show]
+
+  def index
+    @bids = Bid.where(user_id: current_user.id)
+    render "index.json.jb"
+  end
+
   
   def create
     current_car = Car.find_by(id: params[:car_id])

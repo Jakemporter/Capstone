@@ -1,0 +1,8 @@
+@bids.map do |bid|
+{
+  id: bid.id,
+  bid: bid.bid,
+  user_id: current_user.id,
+  user: bid.user.username
+}
+end
