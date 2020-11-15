@@ -6,6 +6,7 @@
   VIN: @car.VIN,
   color: @car.color,
   year: @car.year,
+  expired: @car.expired?,
   miles: @car.miles,
   current_bid: @car.current_bid,
   description: @car.description,

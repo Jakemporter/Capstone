@@ -1,4 +1,9 @@
 @bids.map do |bid|
+  if bid.car.current_bid == bid.bid
+    highest = true
+  else
+    highest = false
+  end
   {
     id: bid.id,
     bid: bid.bid,
@@ -6,6 +11,8 @@
     user: bid.user.username,
     car_make: bid.car.make,
     car_model: bid.car.model,
-    image: bid.car.images[0]["url"]
+    image: bid.car.images[0]["url"],
+    expired: bid.car.expired?,
+    highest: highest
   }
 end
