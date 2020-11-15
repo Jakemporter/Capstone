@@ -1,8 +1,11 @@
 @bids.map do |bid|
-{
-  id: bid.id,
-  bid: bid.bid,
-  user_id: current_user.id,
-  user: bid.user.username
-}
+  {
+    id: bid.id,
+    bid: bid.bid,
+    user_id: current_user.id,
+    user: bid.user.username,
+    car_make: bid.car.make,
+    car_model: bid.car.model,
+    image: bid.car.images[0]["url"]
+  }
 end

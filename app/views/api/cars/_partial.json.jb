@@ -9,5 +9,6 @@
   current_bid: car.current_bid,
   images: car.images,
   description: car.description,
-  categories: car.categories
+  categories: car.categories,
+  expired: car.expired,
 }
