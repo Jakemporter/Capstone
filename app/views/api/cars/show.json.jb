@@ -7,7 +7,7 @@
   color: @car.color,
   year: @car.year,
   expired: @car.expired?,
-  expires: @car.created_at + 2.weeks,
+  expires: @car.expires,
   miles: @car.miles,
   current_bid: @car.current_bid,
   description: @car.description,

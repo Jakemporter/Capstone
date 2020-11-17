@@ -9,4 +9,13 @@ class Car < ApplicationRecord
     return created_at < 2.weeks.ago
   end
 
+  def friendly_created_at
+    created_at.strftime("%B%e, %Y")
+  end
+
+  def expires
+    string = created_at + 2.weeks
+    return string.strftime("%I:%M %p %B %e, %Y")
+  end
+
 end
