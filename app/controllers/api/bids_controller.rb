@@ -3,6 +3,7 @@ class Api::BidsController < ApplicationController
 
   def index
     @bids = Bid.where(user_id: current_user.id)
+    @bids = @bids.order(bid: :desc)
     render "index.json.jb"
   end
 
