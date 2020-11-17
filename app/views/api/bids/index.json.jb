@@ -9,6 +9,7 @@
     bid: bid.bid,
     user_id: current_user.id,
     user: bid.user.username,
+    car_id: bid.car_id,
     car_make: bid.car.make,
     car_model: bid.car.model,
     image: bid.car.images[0]["url"],
