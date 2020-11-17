@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     
     #Category
     post "/categories" => "categories#create"
+    get "/categories" => "categories#index"
 
     #comments
     post "/comments" => "comments#create"

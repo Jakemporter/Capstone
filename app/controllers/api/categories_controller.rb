@@ -13,5 +13,11 @@ class Api::CategoriesController < ApplicationController
     end
     render json: {message: "category created"}
   end
+  
+  def index
+    @categories = Category.all
+    render "index.json.jb"
+  end
+
 end
 
