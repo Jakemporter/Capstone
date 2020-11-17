@@ -13,7 +13,7 @@
     car_make: bid.car.make,
     car_model: bid.car.model,
     image: bid.car.images[0]["url"],
-    expired: bid.car.expired?,
+    expires: bid.car.created_at + 2.weeks,
     highest: highest
   }
 end
