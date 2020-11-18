@@ -1,5 +1,5 @@
 class Api::CarsController < ApplicationController
-  before_action :authenticate_user, except: [:index, :show]
+  before_action :authenticate_user, except: [:index, :show, :show_vin]
   def index
     @cars = Car.where(expired: :false)
     if params[:category]
