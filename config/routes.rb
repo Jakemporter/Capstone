@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     #Cars
     get "/cars" => "cars#index"
     get "/cars/:id" => "cars#show"
+    get "/cars_vin/:id" => "cars#show_vin"
     post "/cars" => "cars#create"
     patch "cars/:id" => "cars#update"
     delete "cars/:id" => "cars#destroy"

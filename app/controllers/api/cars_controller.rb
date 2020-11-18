@@ -19,6 +19,15 @@ class Api::CarsController < ApplicationController
   def show
     @car = Car.find_by(id: params[:id])
     if @car
+      render "show.json.jb"
+    else
+      render json: {error: "Car not found"}, status: 422
+    end
+  end
+
+  def show_vin
+    @car = Car.find_by(id: params[:id])
+    if @car
       if @car.VIN
         response = HTTP
           .headers(:accept => "application/json")
@@ -31,11 +40,12 @@ class Api::CarsController < ApplicationController
           .get("https://api.carsxe.com/marketvalue?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
         @data2 = response.parse
       end
-      render "show.json.jb"
+      render "show_vin.json.jb"
     else
       render json: {error: "Car not found"}, status: 422
     end
   end
+
   
   def create
     @car = Car.new(

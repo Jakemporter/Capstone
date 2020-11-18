@@ -31,26 +31,5 @@
       comment: comment.comment
     }
   end,
-  avg_trade_in: @data2["averageTradeIn"],
-  auction_values: @data2["auctionValues"],
-  trim: @data["attributes"]["trim"],
-  doors: @data["attributes"]["doors"],
-  made_in: @data["attributes"]["made_in"],
-  fuel_type: @data["attributes"]["fuel_type"],
-  fuel_capacity: @data["attributes"]["fuel_capacity"],
-  city_mileage: @data["attributes"]["city_mileage"],
-  highway_mileage: @data["attributes"]["highway_mileage"],
-  engine: @data["attributes"]["engine"],
-  engine_cylinders: @data["attributes"]["engine_cylinders"],
-  transmission: @data["attributes"]["transmission"],
-  drivetrain: @data["attributes"]["drivetrain"],
-  curb_weight: @data["attributes"]["curb_weight"],
-  overall_height: @data["attributes"]["overall_height"],
-  overall_width: @data["attributes"]["overall_width"],
-  overall_length: @data["attributes"]["overall_length"],
-  standard_seating: @data["attributes"]["standard_seating"],
-  original_msrp: @data["attributes"]["manufacturer_suggested_retail_price"],
-  standard_towing: @data["attributes"]["standard_towing"],
-  maximum_towing: @data["attributes"]["maximum_towing"],
-  cargo_volume: @data["attributes"]["cargo_volume"],
+  
 }
