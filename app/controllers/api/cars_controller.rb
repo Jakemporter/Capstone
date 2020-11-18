@@ -25,6 +25,11 @@ class Api::CarsController < ApplicationController
           .timeout(45)
           .get("https://api.carsxe.com/specs?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
         @data = response.parse
+        response = HTTP
+          .headers(:accept => "application/json")
+          .timeout(45)
+          .get("https://api.carsxe.com/marketvalue?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
+        @data2 = response.parse
       end
       render "show.json.jb"
     else

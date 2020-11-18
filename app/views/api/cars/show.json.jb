@@ -31,6 +31,8 @@
       comment: comment.comment
     }
   end,
+  avg_trade_in: @data2["averageTradeIn"],
+  auction_values: @data2["auctionValues"],
   trim: @data["attributes"]["trim"],
   doors: @data["attributes"]["doors"],
   made_in: @data["attributes"]["made_in"],
