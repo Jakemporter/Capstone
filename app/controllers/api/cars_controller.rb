@@ -64,6 +64,11 @@ class Api::CarsController < ApplicationController
           .timeout(45)
           .get("https://api.carsxe.com/specs?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
     @data = response.parse
+    response = HTTP
+          .headers(:accept => "application/json")
+          .timeout(45)
+          .get("https://api.carsxe.com/marketvalue?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
+        @data2 = response.parse
     render "show.json.jb"
   end
 
@@ -91,6 +96,11 @@ class Api::CarsController < ApplicationController
           .timeout(45)
           .get("https://api.carsxe.com/specs?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
         @data = response.parse
+        response = HTTP
+          .headers(:accept => "application/json")
+          .timeout(45)
+          .get("https://api.carsxe.com/marketvalue?key=#{Rails.application.credentials.car_api}&vin=#{@car.VIN}")
+        @data2 = response.parse
         render "show.json.jb"
       else
         render json: {errors: @car.errors.full_messages} , status: 422
