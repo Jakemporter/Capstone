@@ -12,7 +12,7 @@
   current_bid: @car.current_bid,
   description: @car.description,
   images: @car.images,
-  time_left: car.time_left,
+  time_left: @car.time_left,
   user_id: @car.user_id,
   categories: @car.categories,
   username: @car.user.username,
