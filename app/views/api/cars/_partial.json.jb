@@ -11,4 +11,5 @@
   description: car.description,
   categories: car.categories,
   expires: car.expires,
+  time_left: car.time_left,
 }

@@ -18,4 +18,10 @@ class Car < ApplicationRecord
     return string.strftime("%I:%M %p %B %e, %Y")
   end
 
+  def time_left
+    days = ((created_at + 2.weeks) - DateTime.now).to_i / 1.day
+    seconds = ((created_at + 2.weeks) - DateTime.now).to_i
+    return days.to_s + " Days and " + Time.at(seconds).utc.strftime("%H:%M:%S")
+  end
+
 end
