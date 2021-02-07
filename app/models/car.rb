@@ -1,3 +1,10 @@
+require 'dotiw'
+
+include ActionView::Helpers::DateHelper
+include ActionView::Helpers::TextHelper
+include ActionView::Helpers::NumberHelper
+
+
 class Car < ApplicationRecord
   has_many :bids
   belongs_to :user
@@ -6,7 +13,7 @@ class Car < ApplicationRecord
   has_many :category_cars
   has_many :categories, through: :category_cars
   def expired?
-    return created_at < 2.weeks.ago
+    return expires_at < Time.now
   end
 
   def friendly_created_at
@@ -18,10 +25,13 @@ class Car < ApplicationRecord
     return string.strftime("%I:%M %p %B %e, %Y")
   end
 
+
   def time_left
-    days = ((created_at + 2.weeks) - DateTime.now).to_i / 1.day
-    seconds = ((created_at + 2.weeks) - DateTime.now).to_i
-    return days.to_s + " Days and " + Time.at(seconds).utc.strftime("%H:%M:%S")
+    return distance_of_time_in_words(Time.now, created_at + 2.weeks)  
+  end
+
+  def expires_at
+    return created_at + 2.weeks
   end
 
 end
